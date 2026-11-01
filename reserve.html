@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve a Car | AZoom Car Rental</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html" aria-label="AZoom Car Rental home">
+                <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <rect width="40" height="40" rx="9"></rect>
+                    <path d="M11 13h18L11 27h18" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span class="logo-text">A<span>Zoom</span></span>
+            </a>
+        </div>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" onclick="toggleMenu()">
+            <span class="sr-only">Menu</span><span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reserve.html" aria-current="page">Reserve</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="return.html">Return</a></li>
+                <li><a href="inspect.html">Inspect</a></li>
+                <li><a href="payment.html">Pay</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="page-header">
+            <p class="eyebrow">Step 1 of 5</p>
+            <h1>Reserve Your Car</h1>
+            <p>Choose a car and dates, then secure it with a credit card deposit.</p>
+        </section>
+
+        <div class="page-content">
+
+            <ol id="stepper" class="stepper" data-step="1" aria-label="Rental progress"></ol>
+
+            <!-- Form and price summary -->
+            <div id="reserve-layout" class="reserve-layout">
+
+                <div>
+
+                    <div id="form-alert" class="alert alert-danger" role="alert" hidden></div>
+
+                    <form id="reserve-form" class="card" novalidate>
+
+                        <fieldset class="form-section">
+                            <legend>1. Your rental</legend>
+
+                            <div class="form-grid">
+
+                                <div class="form-group full">
+                                    <label for="car">Car</label>
+                                    <select id="car" name="car"></select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pickup">Pick-up date</label>
+                                    <input type="date" id="pickup" name="pickup" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="return">Return date</label>
+                                    <input type="date" id="return" name="return" required>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label for="park">Return car park</label>
+                                    <select id="park" name="park"></select>
+                                    <span class="form-hint" id="date-hint">
+                                        Collect at our office, return at the car park you choose.
+                                        Cars are due back by 18:00 on the return date.
+                                    </span>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-section">
+                            <legend>2. Your details</legend>
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label for="name">Full name</label>
+                                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Tan" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" required>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label for="licence">Driving licence number</label>
+                                    <input type="text" id="licence" name="licence" placeholder="S1234567A" required>
+                                    <span class="form-hint">You will need to show this licence when you collect the car.</span>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-section">
+                            <legend>3. Pay deposit by credit card</legend>
+
+                            <div class="form-grid">
+
+                                <div class="form-group full">
+                                    <label for="card-holder">Name on card</label>
+                                    <input type="text" id="card-holder" name="card-holder" autocomplete="cc-name" placeholder="Jane Tan" required>
+                                </div>
+
+                                <div class="form-group full">
+                                    <label for="card-number">Card number</label>
+                                    <input type="text" id="card-number" name="card-number" inputmode="numeric"
+                                           autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="card-expiry">Expiry (MM/YY)</label>
+                                    <input type="text" id="card-expiry" name="card-expiry" inputmode="numeric"
+                                           autocomplete="cc-exp" placeholder="12/30" maxlength="5" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="card-cvv">CVV</label>
+                                    <input type="text" id="card-cvv" name="card-cvv" inputmode="numeric"
+                                           autocomplete="cc-csc" placeholder="123" maxlength="4" required>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                        <button type="submit" class="btn btn-block" id="submit-btn">Reserve and pay deposit</button>
+
+                    </form>
+
+                </div>
+
+                <!-- Price summary -->
+                <aside class="summary card" aria-live="polite">
+
+                    <h2>Booking summary</h2>
+
+                    <div class="summary-car">
+                        <strong id="sum-car">&ndash;</strong>
+                        <span id="sum-car-info">&ndash;</span>
+                    </div>
+
+                    <dl class="summary-rows">
+                        <div><dt>Rate</dt><dd id="sum-rate">&ndash;</dd></div>
+                        <div><dt>Days</dt><dd id="sum-days">&ndash;</dd></div>
+                        <div class="summary-total"><dt>Rental total</dt><dd id="sum-rental">&ndash;</dd></div>
+                        <div class="summary-deposit"><dt>Deposit due today</dt><dd id="sum-deposit">&ndash;</dd></div>
+                    </dl>
+
+                    <p class="form-hint">
+                        The deposit is deducted from your final bill. Late fees, damage
+                        charges and GST are added after the car is returned and inspected.
+                    </p>
+
+                </aside>
+
+            </div>
+
+            <!-- Confirmation -->
+            <section id="confirmation" class="card confirm" hidden></section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="newsletter">
+            <div>
+                <h3>Subscribe to our newsletter</h3>
+                <p>Offers and new arrivals, straight to your inbox.</p>
+            </div>
+            <form action="#" method="get">
+                <label for="newsletter-email" class="sr-only">Email address</label>
+                <input type="email" id="newsletter-email" placeholder="Enter your email">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>AZoom</h3>
+                <p>Your trusted partner for convenient, affordable and reliable car rental.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="reserve.html">Reservation</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="return.html">Return</a></li>
+                    <li><a href="payment.html">Payment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 AZoom Car Rental. All rights reserved.</p>
+            <button type="button" class="link-button" onclick="resetClicked()">Reset demo data</button>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/reserve.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZoom Car Rental</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+
+<body>
+
+    <!-- Header -->
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html" aria-label="AZoom Car Rental home">
+                <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <rect width="40" height="40" rx="9"></rect>
+                    <path d="M11 13h18L11 27h18" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span class="logo-text">A<span>Zoom</span></span>
+            </a>
+        </div>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" onclick="toggleMenu()">
+            <span class="sr-only">Menu</span><span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="reserve.html">Reserve</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="return.html">Return</a></li>
+                <li><a href="inspect.html">Inspect</a></li>
+                <li><a href="payment.html">Pay</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="top">
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div class="photo photo-hero" style="--img: url('../images/hero.jpg')" role="img" aria-label="Black Mercedes-AMG coupe parked on a road"></div>
+
+            <div class="hero-inner">
+
+                <div class="hero-content">
+
+                    <p class="eyebrow">Arrive in style</p>
+
+                    <h1>Premium Cars,<br>First-Class Experience</h1>
+
+                    <p class="hero-description">
+                        Reserve online, collect at our office and return at
+                        any designated car park. Simple from start to finish.
+                    </p>
+
+                    <a href="#reserve" class="btn">Reserve a Car</a>
+
+                </div>
+
+                <aside class="hero-card">
+                    <div class="photo photo-thumb" style="--img: url('../images/hero-card.jpg')" role="img" aria-label="Close-up of a glowing car headlight"></div>
+                    <div class="hero-card-footer">
+                        <span>Car Details</span>
+                        <a href="#fleet" class="hero-card-go" aria-label="View fleet">&rarr;</a>
+                    </div>
+                </aside>
+
+            </div>
+
+            <div class="hero-actions">
+                <a href="#fleet">See Our Collection <span>&rarr;</span></a>
+                <a href="#reserve">Start Reservation <span>&rarr;</span></a>
+            </div>
+
+        </section>
+
+        <!-- How it works -->
+
+        <section class="about" id="about">
+
+            <div class="split">
+
+                <div class="split-text">
+
+                    <p class="eyebrow">How it works</p>
+
+                    <h2>Five Simple Steps, Fully Online</h2>
+
+                    <p class="lead">
+                        From the first click to the final bill, every part of
+                        your rental is handled in one place.
+                    </p>
+
+                    <ol class="steps">
+                        <li>
+                            <h3>Reserve</h3>
+                            <p>Choose your car and secure it with a credit card.</p>
+                        </li>
+                        <li>
+                            <h3>Rent</h3>
+                            <p>Collect the keys at our office.</p>
+                        </li>
+                        <li>
+                            <h3>Return</h3>
+                            <p>Drop the car at a designated car park.</p>
+                        </li>
+                        <li>
+                            <h3>Inspect</h3>
+                            <p>Our team checks and updates the car's status.</p>
+                        </li>
+                        <li>
+                            <h3>Pay</h3>
+                            <p>Settle the final bill, including any damages.</p>
+                        </li>
+                    </ol>
+
+                </div>
+
+                <div class="photo photo-portrait" style="--img: url('../images/about.jpg')" role="img" aria-label="Porsche Panamera on a coastal road at sunset"></div>
+
+            </div>
+
+        </section>
+
+        <!-- Fleet -->
+
+        <section class="cars" id="fleet">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">Our fleet</p>
+
+                <h2>Tailored for Style, Speed &amp; Comfort</h2>
+
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-bar" id="fleet-filters" role="group" aria-label="Filter cars by category"></div>
+            </div>
+
+            <p class="fleet-count" id="fleet-count" aria-live="polite"></p>
+
+            <div class="car-grid" id="car-grid"></div>
+
+        </section>
+
+        <!-- Return car parks -->
+
+        <section class="parks" id="parks">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">Return car parks</p>
+
+                <h2>Drop Your Car Off Near You</h2>
+
+            </div>
+
+            <div class="parks-layout">
+
+                <div class="park-list">
+                        <article class="park-card">
+                            <strong>Marina Bay Car Park</strong>
+                            <span>10 Bayfront Avenue</span>
+                            <a class="btn btn-outline btn-small" href="reserve.html" onclick="startReservation('', 'P01')">Reserve and return here</a>
+                        </article>
+                        <article class="park-card">
+                            <strong>Orchard Central Car Park</strong>
+                            <span>181 Orchard Road</span>
+                            <a class="btn btn-outline btn-small" href="reserve.html" onclick="startReservation('', 'P02')">Reserve and return here</a>
+                        </article>
+                        <article class="park-card">
+                            <strong>Changi Airport Car Park</strong>
+                            <span>Airport Boulevard</span>
+                            <a class="btn btn-outline btn-small" href="reserve.html" onclick="startReservation('', 'P03')">Reserve and return here</a>
+                        </article>
+                    </div>
+
+                <div class="park-map">
+                    <iframe title="Map of the AZoom car parks" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=103.80%2C1.25%2C104.02%2C1.39&amp;layer=mapnik"></iframe>
+                    <a class="form-hint" href="https://www.openstreetmap.org/#map=12/1.3200/103.9100" target="_blank" rel="noopener">Open a larger map</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Offers -->
+
+        <section class="promotions">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">Special offers</p>
+
+                <h2>Great Deals for Every Journey</h2>
+
+            </div>
+
+            <div class="promotion-container">
+
+                <article class="promotion-card">
+                    <span class="promotion-tag">Save 20%</span>
+                    <h3>Weekend Special</h3>
+                    <p>Enjoy 20% off selected vehicles for weekend rentals.</p>
+                    <a class="btn btn-outline btn-small" href="#reserve">Reserve now</a>
+                </article>
+
+                <article class="promotion-card">
+                    <span class="promotion-tag">Popular</span>
+                    <h3>Long-Term Rental</h3>
+                    <p>Save more when you rent a car for seven days or longer.</p>
+                    <a class="btn btn-outline btn-small" href="#reserve">Reserve now</a>
+                </article>
+
+                <article class="promotion-card">
+                    <span class="promotion-tag">New customer</span>
+                    <h3>First Rental Discount</h3>
+                    <p>New customers receive a special discount on their first rental.</p>
+                    <a class="btn btn-outline btn-small" href="#reserve">Reserve now</a>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Booking form -->
+
+        <section class="reserve" id="reserve">
+
+            <div class="photo photo-reserve" style="--img: url('../images/reserve-bg.jpg')" role="img" aria-label="A black sedan parked at night in front of a city skyline"></div>
+
+            <div class="reserve-inner">
+
+                <div class="reserve-heading">
+
+                    <div>
+                        <p class="eyebrow">Book your car</p>
+                        <h2>Your Journey Begins With One Click</h2>
+                    </div>
+
+                    <dl class="hours">
+                        <dt>Office Hours</dt>
+                        <dd><span>Mon &ndash; Fri</span> <span>08:00 &ndash; 22:00</span></dd>
+                        <dd><span>Saturday</span> <span>09:00 &ndash; 20:00</span></dd>
+                        <dd><span>Sunday</span> <span>10:00 &ndash; 18:00</span></dd>
+                    </dl>
+
+                </div>
+
+                <form class="glass-form" id="home-form" novalidate>
+
+                    <div id="home-alert" class="alert alert-danger" role="alert" hidden></div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="full-name">Full name</label>
+                            <input type="text" id="full-name" name="full-name" placeholder="Jane Tan">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="jane@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="car">Car</label>
+                            <select id="car" name="car"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="car-park">Return car park</label>
+                            <select id="car-park" name="car-park"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickup">Pick-up date</label>
+                            <input type="date" id="pickup" name="pickup">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="return">Return date</label>
+                            <input type="date" id="return" name="return">
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-block">Continue to Reservation</button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- Reviews -->
+
+        <section class="testimonials">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">What our clients say</p>
+
+                <h2>Real Stories, Premium Experiences</h2>
+
+            </div>
+
+            <div class="testimonial-container">
+
+                <article class="testimonial">
+
+                    <div class="rating" aria-label="5 out of 5 stars">★★★★★</div>
+
+                    <blockquote>
+                        "The booking process was simple
+                        and the car was excellent."
+                    </blockquote>
+
+                    <div class="customer">
+                        <div class="customer-avatar">ST</div>
+                        <div>
+                            <h3>Sarah Tan</h3>
+                            <p>Weekend Traveller</p>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="testimonial">
+
+                    <div class="rating" aria-label="5 out of 5 stars">★★★★★</div>
+
+                    <blockquote>
+                        "Great service and very friendly
+                        staff. I will definitely rent again."
+                    </blockquote>
+
+                    <div class="customer">
+                        <div class="customer-avatar">DL</div>
+                        <div>
+                            <h3>David Lim</h3>
+                            <p>Business Traveller</p>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="testimonial">
+
+                    <div class="rating" aria-label="5 out of 5 stars">★★★★★</div>
+
+                    <blockquote>
+                        "The prices were reasonable and
+                        the whole process was easy."
+                    </blockquote>
+
+                    <div class="customer">
+                        <div class="customer-avatar">ML</div>
+                        <div>
+                            <h3>Michael Lee</h3>
+                            <p>Family Traveller</p>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Banner -->
+
+        <section class="cta">
+
+            <div class="photo photo-cta" style="--img: url('../images/cta.jpg')" role="img" aria-label="A row of cars parked in a car park"></div>
+
+            <div class="cta-content">
+                <p class="eyebrow">Ready to drive</p>
+                <h2>Drive On Your Terms</h2>
+                <p>Fast booking, flexible returns, no surprises on the final bill.</p>
+                <a href="#fleet" class="btn">Browse Our Cars</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="newsletter">
+            <div>
+                <h3>Subscribe to our newsletter</h3>
+                <p>Offers and new arrivals, straight to your inbox.</p>
+            </div>
+            <form action="#" method="get">
+                <label for="newsletter-email" class="sr-only">Email address</label>
+                <input type="email" id="newsletter-email" placeholder="Enter your email">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>AZoom</h3>
+                <p>Your trusted partner for convenient, affordable and reliable car rental.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="reserve.html">Reservation</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="return.html">Return</a></li>
+                    <li><a href="payment.html">Payment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 AZoom Car Rental. All rights reserved.</p>
+            <button type="button" class="link-button" onclick="resetClicked()">Reset demo data</button>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/home.js"></script>
+
+</body>
+
+</html>
